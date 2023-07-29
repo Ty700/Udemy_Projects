@@ -1,6 +1,4 @@
-#include <string>
 #include <vector>
-#include <iostream>
 
 std::vector<char> unfoundChars; //will make sense later - easier for replacing unfound chars
 std::string characterList {"aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ1234567890!#$%^&()_+/,.`~"};
