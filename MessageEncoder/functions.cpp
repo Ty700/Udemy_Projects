@@ -19,14 +19,7 @@ void encodeMessage(std::string &stringToEncode){
         
         if(foundCharFromStringinCharactersList == std::string::npos){
             //Handles spaces in the string - didn't include this in "characterList" so spaces in message = _ in encoded message
-            if(stringToEncode.at(i) == ' '){
-                unfoundChars.push_back(' ');
-                goto skipExtraPush_back;
-            }
-
             unfoundChars.push_back(stringToEncode.at(i)); //keeps unfound char(s) so I can replce it once we are decoding
-            
-            skipExtraPush_back:
             stringToEncode.replace(i,1, "_"); //if a character in message isn't in the reference of characters, it will replace with an underscore
             continue;
         }
