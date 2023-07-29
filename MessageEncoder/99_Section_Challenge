@@ -1,71 +1,18 @@
 #include <string>
 #include <iostream>
-#include <vector>
+#include "functions.cpp"
 
 int main(){
 
     std::string stringToEncode;
-    std::vector<char> unfoundChars; //will make sense later - easier for replacing unfound chars
 
+    //Gathers message the user wants to encode
     std::cout << "Enter in a string:\n";
         getline(std::cin, stringToEncode);
     
-    std::string characters {"aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ1234567890!#$%^&()_+/,.`~"};
-    std::string key;
-
-    for(int i {characters.size()-1}; i >= 0; --i){
-        key += characters.at(i);
-    } //lazy - "key" string is the "characters" string but in reverse
-
     //Encoding
-    for(int i{0}; i < stringToEncode.size(); ++i){
-        size_t foundCharFromStringinCharacters = characters.find(stringToEncode.at(i)); //finds the char from input and retrieves the index from character string
-        
-        if(foundCharFromStringinCharacters == std::string::npos){
-            //Handles spaces in the string - didn't include this in "characters" so spaces in message = _ in encoded message
-            if(stringToEncode.at(i) == ' '){
-                unfoundChars.push_back(' ');
-                stringToEncode.at(i) == ' ';
-            }
-
-            unfoundChars.push_back(stringToEncode.at(i)); //keeps unfound char(s) so I can replce it once we are decoding
-
-            stringToEncode.replace(i,1, "_"); //if a character in message isn't in the reference of characters, it will replace with an underscore
-            continue;
-        }
-        //replaces the char at i in the message with the character in key at the found index from character list 
-        stringToEncode.at(i) = key.at(foundCharFromStringinCharacters); 
-
-    }
-
-    std::cout << "Encoded message: " << stringToEncode;
-    //Decoding - simply the reverse of encoding... nothing special KISS
+    encodeMessage(stringToEncode);
+    //Decoding
+    decodeMessage(stringToEncode);
     
-    /* starts at the back so it's faster replacing unfound chars.
-    * Why? Unfound chars are in order. The way I do it avoids bitshifting the vector and causing delays with that. 
-    * I could do it another way (without vectors and just use a string) BUTTTT -_(0. 0)_- this way made more since in my head and less string 
-    * functions I needed to use
-    */
-
-    //!!!stringToEncode is now the message being decoded!!! - Did this to save save memory space 
-    for(int i{stringToEncode.size()-1}; i >= 0; --i){  
-        if(stringToEncode.at(i) == '_'){
-            stringToEncode.at(i) = unfoundChars.at(unfoundChars.size()-1); //Scanning from R -> L means the next unfound char would be stored in the last index of the vector.
-            unfoundChars.pop_back(); //removes the back
-            
-            /*Note to future-self:
-            * If I scanned encoded message from L -> R I would replace it with first index of vector, the remove first index of vector thus bitshifting that'll cause delays.
-            * Is it enough to gripe about? Idk tbh. Maybe?
-            */
-
-           continue;
-        }
-
-        size_t foundCharFromStringInKey = key.find(stringToEncode.at(i)); //finds the char from encoded input in the key list. returns the index of found
-        
-        stringToEncode.at(i) = characters.at(foundCharFromStringInKey); //replaces 
-    }
-
-    std::cout << "\nDecoded message: " << stringToEncode;
-
 }
