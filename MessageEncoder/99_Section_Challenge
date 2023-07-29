@@ -1,5 +1,4 @@
-#include <string>
-#include <iostream>
+#include "include.h"
 #include "functions.cpp"
 
 int main(){
@@ -14,5 +13,5 @@ int main(){
     encodeMessage(stringToEncode);
     //Decoding
     decodeMessage(stringToEncode);
-    
+
 }
