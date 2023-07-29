@@ -10,7 +10,7 @@ int main(){
     std::cout << "Enter in a string:\n";
         getline(std::cin, stringToEncode);
     
-    std::string characters {"aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRtTuUvVwWxXyYzZ1234567890!#$%^&()_+/,.`~"};
+    std::string characters {"aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ1234567890!#$%^&()_+/,.`~"};
     std::string key;
 
     for(int i {characters.size()-1}; i >= 0; --i){
@@ -20,8 +20,14 @@ int main(){
     //Encoding
     for(int i{0}; i < stringToEncode.size(); ++i){
         size_t foundCharFromStringinCharacters = characters.find(stringToEncode.at(i)); //finds the char from input and retrieves the index from character string
-
+        
         if(foundCharFromStringinCharacters == std::string::npos){
+            //Handles spaces in the string - didn't include this in "characters" so spaces in message = _ in encoded message
+            if(stringToEncode.at(i) == ' '){
+                unfoundChars.push_back(' ');
+                stringToEncode.at(i) == ' ';
+            }
+
             unfoundChars.push_back(stringToEncode.at(i)); //keeps unfound char(s) so I can replce it once we are decoding
 
             stringToEncode.replace(i,1, "_"); //if a character in message isn't in the reference of characters, it will replace with an underscore
