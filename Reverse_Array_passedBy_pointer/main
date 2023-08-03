@@ -1,0 +1,12 @@
+//Not asking user for anything, just a practice problem with an array that is known prior to compile time. 
+
+int main(){
+    int arr[] = {1, 2, 3, 4, 5}; 
+    int size = sizeof(arr) / sizeof(arr[0]);
+    
+    reverse_array(arr, size);
+
+    for(int i {0}; i < size; i++){
+        std::cout << arr[i];
+    }
+}
