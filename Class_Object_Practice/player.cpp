@@ -1,19 +1,18 @@
-#pragma once
 #include "Player.h"
 
 void Player::setName(const std::string &name){
     this->name = name;
 }
 
-inline std::string Player::getName() {
+std::string Player::getName() {
     return name;
 }
 
-inline void Player::setHP(int hp){ 
+void Player::setHP(int hp){ 
     this->hp = hp; 
 }
 
-inline int Player::getHP(){ 
+int Player::getHP(){ 
     return hp; 
 }
 
