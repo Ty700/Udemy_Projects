@@ -3,7 +3,8 @@
 
 
 #include "Player.cpp"
-
+//include "Player.h" - Errors with this and not .cpp? 
+//but this is also the standard way of doing things? Confused
 int main(){
     //Stack obj
     Player Tyler;
