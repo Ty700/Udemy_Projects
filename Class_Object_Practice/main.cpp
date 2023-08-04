@@ -30,4 +30,5 @@ int main(){
         std::cout << "Is that all you got?";
     }
 
+    delete enemy;
 }
