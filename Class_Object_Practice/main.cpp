@@ -4,7 +4,7 @@
 
 #include "Player.cpp"
 //include "Player.h" - Errors with this and not .cpp? 
-//but this is also the standard way of doing things? Confused
+//However it says that we should never include .cpp files, rather grab the .h instead, yet it doesn't work? 
 int main(){
     //Stack obj
     Player Tyler;
