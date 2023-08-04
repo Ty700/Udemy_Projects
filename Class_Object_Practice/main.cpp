@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 
+
 #include "Player.cpp"
 
 int main(){
@@ -23,7 +24,7 @@ int main(){
     std::cout << Tyler.getName() << " attacked " << enemy->getName() << " and now the enemy's health is: " << enemy->getHP() << std::endl;
 
     //will always be 0, but later I will add a random number 0-25 that will be the "attack" on the enemy and the health will not always = 0.
-    if(enemy->getHP() <= 0){
+    if(enemy->isDead()){
         std::cout << "Ghoul collapeses and appears dead.";
     } else {
         std::cout << "Is that all you got?";
