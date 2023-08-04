@@ -15,7 +15,7 @@ int main(){
     enemy->setName("Ghoul");
     enemy->setHP(25);
     
-    //need to use -> for heap. -> = *(enemy).method();
+    //need to use -> for heap. -> = (*enemy).method();
     enemy->talk("You're all mine!\n");
 
     enemy->setHP(enemy->getHP() - 25);
