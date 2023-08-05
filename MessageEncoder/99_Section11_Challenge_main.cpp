@@ -1,5 +1,5 @@
-#include "include.h"
-#include "functions.cpp"
+#include "preprocessor_dirs.h"
+#include "functions.h"
 
 int main(){
 
