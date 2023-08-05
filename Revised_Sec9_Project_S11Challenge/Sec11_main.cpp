@@ -1,20 +1,17 @@
-#include "preprocessor_directives.h"
-#include "displayMenu.cpp"
-#include "menuAction.cpp"
+#include "preprocessor_dirs.h"
+#include "functions.h"
 
 int main(){
-    std::vector<int> list;
-    char choice;
-    do{
-        //Displays the menu to the user
-        displayMenu();
-        
-        //Gets the menu action the user wants to preform
-        getChoice(choice); //in "menuActionFunctions.cpp"
 
-        //Completes the action the user wants
-        menuAction(choice, list);
-    }while(choice != 'Q' && choice != 'q');
+    std::string stringToEncode;
+
+    //Gathers message the user wants to encode
+    std::cout << "Enter in a string:\n";
+        getline(std::cin, stringToEncode);
+    
+    //Encoding
+    encodeMessage(stringToEncode);
+    //Decoding
+    decodeMessage(stringToEncode);
 
 }
-
