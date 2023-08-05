@@ -1,4 +1,5 @@
-#include "include.h"
+#include "functions.h"
+#include "preprocessor_dirs.h"
 
 std::vector<char> unfoundChars; //will make sense later - easier for replacing unfound chars
 std::string characterList {"aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ1234567890!#$%^&()_+/,.`~"};
@@ -36,6 +37,7 @@ void encodeMessage(std::string &stringToEncode){
 *  - I could do it another way (without vectors and just use a string) BUTTTT -_(0. 0)_- this way made more since in my head and less string 
 *  - functions I needed to use
 */
+
 
 void decodeMessage(std::string &stringToDecode){
     for(int i{stringToDecode.size()-1}; i >= 0; --i){  
