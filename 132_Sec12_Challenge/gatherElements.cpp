@@ -1,5 +1,5 @@
 #include "preprocessor_directives.h"
-
+#include "main.h"
 // Gathers the elements the user wants to multiply
 int *gatherElements(){
 
