@@ -7,9 +7,7 @@
 */
 
 #include "preprocessor_directives.h"
-#include "print.cpp"
-#include "multiply_arrays.cpp"
-#include "gatherElements.cpp"
+#include "main.h"
 
 int main(){
     //Gathers two arrays from user - Size of each array is saved in the first element of the array
