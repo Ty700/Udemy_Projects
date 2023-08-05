@@ -1,3 +1,4 @@
+#include "main.h"
 int *multiply_arrays(const int* array1, const int sizeOfArray1, 
                 const int* array2, const int sizeOfArray2){
     
