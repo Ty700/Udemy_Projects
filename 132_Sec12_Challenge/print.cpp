@@ -1,5 +1,6 @@
 //prints all the numbers in the given array
-#include "preprocessor_directives.h"
+#include "main.h"
+
 
 void print(const int* arrayToPrint, const int &size){
     for(int i{0}; i < size; i++){
