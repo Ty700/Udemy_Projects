@@ -12,7 +12,7 @@ void playGame(){
 
     _sleep(1000);
     //Hero attacks enemy
-    Hero->attack(*Enemy);
+    Hero->attack(Hero, Enemy);
 
     //checks if enemy is dead
         if(Enemy->getHP() < 0){
@@ -21,8 +21,6 @@ void playGame(){
 
     _sleep(1000);
     //Enemy's turn
-    Enemy->attack(*Hero);
+    Enemy->attack(Enemy, Hero);
     }while(Hero->getHP() > 0 && Enemy->getHP() > 0);
-    
-    delete Hero, Enemy;
 }
