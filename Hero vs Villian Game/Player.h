@@ -13,13 +13,15 @@ public:
     void setName(const std::string &name);    
     std::string getName();    
     void talk(std::string stringToSay);
-    void checkIfDead();
     int getHP();
     void setHP(int hp);
-    void attack(Player &victim);
+    void attack(Player *attacker, Player *victim);
+    // ~Player(){
+    //     std::cout << "Destructor called";
+    // }
 
 private:
-    std::string name;
+    std::string name{"None"};
     int hp{0};
     // int xp{0};
 };
