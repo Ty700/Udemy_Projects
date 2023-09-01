@@ -2,7 +2,10 @@
 // Inheritance
 
 //Build CMD:
-g++ Utility_Functions/Account_Util.cpp Account/Account.cpp Checking_Account/Checking_Account.cpp main.cpp Savings_Account/Savings_Account.cpp Trust_Account/Trust_Account.cpp -o main
+g++ src/*.cpp -o bin/main.exe
+
+//Run CMD:
+./bin/main.exe
 
 
 You are provided with a simple Account class hierarchy that contains

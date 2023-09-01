@@ -1,4 +1,5 @@
 #pragma once
+
 #include "Account.h"
 
 // Savings Account is a type of Account
@@ -25,5 +26,3 @@ public:
     bool deposit(double amount);
     // Inherits the Account::withdraw methods
 };
-
-
