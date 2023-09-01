@@ -1,4 +1,4 @@
-#include "headers/Account.h"
+#include "../headers/Account.h"
 
 Account::Account(std::string name, double balance) 
     : name{name}, balance{balance} {}
