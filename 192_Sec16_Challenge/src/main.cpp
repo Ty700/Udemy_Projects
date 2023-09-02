@@ -26,6 +26,10 @@ int main() {
         display(*ptrToObjs[2]);
     }
 
+    //Free memory
+    for(auto acc : ptrToObjs){
+        delete acc;
+    }
     
 
     //Display menu

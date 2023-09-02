@@ -4,6 +4,8 @@ std::vector<Account *> createAccounts(){
     std::vector<Account *> ptrToObjs;
 
     //Commented out section is how Udemy instructor wanted us to do it.
+
+    //I HAVEN'T LEARNED SHARED POINTERS YET AND 
     Account *checking_acc = new Checking_Account("Checking Acc");
     Account *savings_acc = new Savings_Account("Savings Acc", 0, 1.5);
     Account *trust_acc = new Trust_Account("Trust Acc", 0 , 5);
@@ -13,8 +15,6 @@ std::vector<Account *> createAccounts(){
     ptrToObjs.push_back(trust_acc);
 
     //I did it a little differently. I made ^ but wanted to take the challenge a bit further
-
-
 
     return ptrToObjs;
 }
