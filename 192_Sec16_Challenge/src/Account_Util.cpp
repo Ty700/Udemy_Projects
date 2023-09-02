@@ -1,5 +1,20 @@
 #include "../headers/Account_Util.h"
 
+std::vector<Account *> createAccounts(){
+    std::vector<Account *> ptrToObjs;
+
+    //This is how Udemy Instructor wants us to do it. Instead I did it non-statically(? Is that the right word)
+    Account *checking_acc = new Checking_Account("Checking Acc");
+    Account *savings_acc = new Savings_Account("Savings Acc", 0, 1.5);
+    Account *trust_acc = new Trust_Account("Trust Acc", 0 , 5);
+
+    ptrToObjs.push_back(checking_acc);
+    ptrToObjs.push_back(savings_acc);
+    ptrToObjs.push_back(trust_acc);
+
+
+    return ptrToObjs;
+}
 
 void displayAll(const std::vector<Account *> &acc){
     for(auto i: acc){
@@ -18,12 +33,10 @@ void deposit(const std::vector<Account *> &acc, double amount){
     displayAll(acc);
 }
 
+
 void withdraw(const std::vector<Account *> &acc, double amount){
     for(auto i: acc){
-        if(i->withdraw(amount) == false){
-            std::cout << "Withdrawl failed for: " << i->getName() << std::endl;
-            continue;
-        }
+        i->withdraw(amount);
     }
     displayAll(acc);
 }
