@@ -19,7 +19,8 @@ public:
     
     virtual bool deposit(double amount) = 0;
     virtual bool withdraw(double amount) = 0;
-    //virtual void print(std::ostream &os) const = 0;
-
+    virtual void print(std::ostream &os) const = 0;
+    virtual std::string getName() const = 0;
+    
     virtual ~Account() {}
 };

@@ -16,7 +16,9 @@ bool Account::withdraw(double amount) {
     if (balance - amount >=0) {
         balance -= amount;
         return true;
-    } else
+    } else {
+        std::cout << "WITHDRAWL FAILED: INSUFFICENT FUNDS" << std::endl;
         return false;
+    }
 }
 

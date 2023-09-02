@@ -7,6 +7,7 @@ public:
     virtual bool deposit(double amount) override;
     virtual bool withdraw(double amount) override;
     virtual void print(std::ostream &os) const override;
+    virtual std::string getName() const override;
 
     virtual ~Trust_Account() {}
 

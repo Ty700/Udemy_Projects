@@ -1,4 +1,5 @@
 #include "../headers/Trust_Account.h"
+#include <vector>
 
 Trust_Account::Trust_Account(std::string name, double balance, double int_rate)
     : Savings_Account{name, balance, int_rate}, withdrawlCount{0} {}
@@ -13,9 +14,12 @@ bool Trust_Account::deposit(double amount){
 }
 
 void Trust_Account::print(std::ostream &os) const {
-    os << "Trust Account Print" << std::endl;
+    os << "[Account Name: " << name
+        << " | Account Balance: " << balance 
+        << " | Account Interest Rate: " << int_rate
+         << " | Withdraw Count: " << withdrawlCount
+        << "]" << std::endl; 
 }
-
 
 //calculates the max amount user is able to withdrawl at one time
 double Trust_Account::calculateMaxWithdraw(double currentBalance){
@@ -23,19 +27,19 @@ double Trust_Account::calculateMaxWithdraw(double currentBalance){
 }
 
 bool Trust_Account::withdraw(double amount){
-    if(withdrawlCount >= max_withdrawls){
-        return false;
-    }
-    //Checks if amount withdrawling is greater than 20% of account balance
-    if(amount >= calculateMaxWithdraw(balance)){
-        return false;
-    }
-    withdrawlCount += 1;
-    return Savings_Account::withdraw(amount);
-}   
 
-std::ostream &operator<<(std::ostream &os, const Trust_Account &account) {
-    os << "[Trust Account: " << account.name << ": " << account.balance << ", " << account.int_rate << "% " 
-        << account.withdrawlCount << "]";
-    return os;
+    if(withdrawlCount >= max_withdrawls){
+        std::cout << "WITHDRAW FAILED: MAX ATTEMPTS REACHED" << std::endl;
+        return false;
+    } else if(amount >= calculateMaxWithdraw(balance)){
+        std::cout << "WITHDRAW FAILED: AMOUNT EXCEEDS WITHDRAWL LIMIT " << std::endl;
+        return false;
+    } else {
+        withdrawlCount += 1;
+        return Savings_Account::withdraw(amount);
+    }
+}
+
+std::string Trust_Account::getName() const{
+    return this->name;
 }
