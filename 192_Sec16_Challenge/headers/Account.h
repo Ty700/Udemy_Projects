@@ -1,8 +1,6 @@
 // Simple Account 
 #pragma once
 #include "I_Printable.h"
-#include <iostream>
-#include <string>
 
 class Account : public I_Printable {
  

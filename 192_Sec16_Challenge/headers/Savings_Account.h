@@ -1,5 +1,4 @@
 #pragma once
-
 #include "Account.h"
 
 class Savings_Account: public Account {

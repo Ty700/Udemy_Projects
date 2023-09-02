@@ -3,7 +3,7 @@
 std::vector<Account *> createAccounts(){
     std::vector<Account *> ptrToObjs;
 
-    //This is how Udemy Instructor wants us to do it. Instead I did it non-statically(? Is that the right word)
+    //Commented out section is how Udemy instructor wanted us to do it.
     Account *checking_acc = new Checking_Account("Checking Acc");
     Account *savings_acc = new Savings_Account("Savings Acc", 0, 1.5);
     Account *trust_acc = new Trust_Account("Trust Acc", 0 , 5);
@@ -11,6 +11,9 @@ std::vector<Account *> createAccounts(){
     ptrToObjs.push_back(checking_acc);
     ptrToObjs.push_back(savings_acc);
     ptrToObjs.push_back(trust_acc);
+
+    //I did it a little differently. I made ^ but wanted to take the challenge a bit further
+
 
 
     return ptrToObjs;

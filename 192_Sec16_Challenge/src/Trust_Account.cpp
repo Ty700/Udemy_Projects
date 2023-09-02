@@ -1,5 +1,4 @@
 #include "../headers/Trust_Account.h"
-#include <vector>
 
 Trust_Account::Trust_Account(std::string name, double balance, double int_rate)
     : Savings_Account{name, balance, int_rate}, withdrawlCount{0} {}
@@ -33,9 +32,11 @@ bool Trust_Account::withdraw(double amount){
                 << "REASON: MAX ATTEMPTS REACHED" << std::endl;
         return false;
     } else if(amount >= calculateMaxWithdraw(balance)){
-        std::cout << "WITHDRAW FAILED FOR: " << name << " REASON: AMOUNT EXCEEDS WITHDRAWL LIMIT" << std::endl;
+        std::cout << "WITHDRAW FAILED FOR: " << name << std::endl
+                << "REASON: AMOUNT EXCEEDS WITHDRAWL LIMIT" << std::endl;
         return false;
     } else {
+        std::cout << "WITHDRAW SUCCESSFUL" << std::endl;
         withdrawlCount += 1;
         return Savings_Account::withdraw(amount);
     }
