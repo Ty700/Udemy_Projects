@@ -11,9 +11,20 @@
 
 int main() {
 
-    Account *checking_acc1 = new Checking_Account();
+    std::vector<Account *> ptrToObjs;
+
+    Account *checking_acc = new Checking_Account();
+    Account *savings_acc = new Savings_Account();
+    Account *trust_acc = new Trust_Account();
+
+    ptrToObjs.push_back(checking_acc);
+    ptrToObjs.push_back(savings_acc);
+    ptrToObjs.push_back(trust_acc);
+
+    for(int i = 0; i < ptrToObjs.size(); i++){
+        std::cout << *ptrToObjs.at(i) << std::endl;
+    }
     
-    std::cout << *checking_acc1 << std::endl;
 
     return 0;
 }

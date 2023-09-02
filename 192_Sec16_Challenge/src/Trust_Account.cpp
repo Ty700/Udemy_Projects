@@ -12,6 +12,11 @@ bool Trust_Account::deposit(double amount){
     }
 }
 
+void Trust_Account::print(std::ostream &os) const {
+    os << "Trust Account Print" << std::endl;
+}
+
+
 //calculates the max amount user is able to withdrawl at one time
 double Trust_Account::calculateMaxWithdraw(double currentBalance){
     return currentBalance*0.2;
