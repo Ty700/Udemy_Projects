@@ -20,13 +20,12 @@ double Trust_Account::calculateMaxWithdraw(double currentBalance){
 bool Trust_Account::withdraw(double amount){
     if(withdrawlCount >= max_withdrawls){
         return false;
-    }
-    //Checks if amount withdrawling is greater than 20% of account balance
-    if(amount >= calculateMaxWithdraw(balance)){
+    } else if(amount >= calculateMaxWithdraw(balance)){
         return false;
+    } else { 
+        withdrawlCount += 1;
+        return Savings_Account::withdraw(amount);
     }
-    withdrawlCount += 1;
-    return Savings_Account::withdraw(amount);
 }   
 
 std::ostream &operator<<(std::ostream &os, const Trust_Account &account) {
