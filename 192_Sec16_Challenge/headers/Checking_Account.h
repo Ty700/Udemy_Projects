@@ -17,6 +17,8 @@ public:
     virtual void print(std::ostream &os) const override;
     virtual std::string getName() const override;
 
+    virtual ~Checking_Account() {}
+
 protected:
     const double WITHDAWL_FEE{1.50};
 };
