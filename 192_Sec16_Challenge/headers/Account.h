@@ -1,4 +1,4 @@
-// Simple Account 
+// Fully abstract Account 
 #pragma once
 #include "I_Printable.h"
 

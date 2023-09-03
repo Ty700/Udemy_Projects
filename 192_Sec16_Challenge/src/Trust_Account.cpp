@@ -28,15 +28,14 @@ double Trust_Account::calculateMaxWithdraw(double currentBalance){
 bool Trust_Account::withdraw(double amount){
 
     if(withdrawlCount >= max_withdrawls){
-        std::cout << "WITHDRAW FAILED FOR: " << name << std::endl 
-                << "REASON: MAX ATTEMPTS REACHED" << std::endl;
+        std::cout << red << "WITHDRAW FAILED FOR: " << reset << name 
+                  << red << " REASON: MAX WITHDRAWLS REACHED\n\n" << reset;
         return false;
     } else if(amount >= calculateMaxWithdraw(balance)){
-        std::cout << "WITHDRAW FAILED FOR: " << name << std::endl
-                << "REASON: AMOUNT EXCEEDS WITHDRAWL LIMIT" << std::endl;
+        std::cout << red << "WITHDRAW FAILED FOR: " << reset << name 
+                  << red << " REASON: AMOUNT EXCEEDS WITHDRAWL LIMIT\n\n" << reset;
         return false;
     } else {
-        std::cout << "WITHDRAW SUCCESSFUL" << std::endl;
         withdrawlCount += 1;
         return Savings_Account::withdraw(amount);
     }

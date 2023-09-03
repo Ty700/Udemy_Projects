@@ -14,11 +14,12 @@ bool Account::deposit(double amount) {
 
 bool Account::withdraw(double amount) {
     if (balance - amount >=0) {
+        std::cout << green << "WITHDRAW SUCCESSFUL FOR: " << reset << name << std::endl << std::endl;
         balance -= amount;
         return true;
     } else {
-        std::cout << "WITHDRAWL FAILED FOR: " << name << std::endl
-                << "REASON: INSUFFICENT FUNDS" << std::endl;
+        std::cout << red << "WITHDRAWL FAILED FOR: " << reset << name << std::endl
+                << red << "REASON: INSUFFICENT FUNDS" << reset << std::endl;
         return false;
     }
 }
