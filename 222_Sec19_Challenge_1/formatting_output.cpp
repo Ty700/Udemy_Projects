@@ -89,6 +89,7 @@ int main()
     //Title
     std::cout << std::setw(centerTitle) << title << std::endl << std::endl;
 
+    //Table section titles
     std::cout << std::setw(countryWidth) << std::left << "Country" 
               << std::setw(cityWidth) << std::left << "City"
               << std::setw(popWidth) << std::right << "Population"
@@ -98,6 +99,7 @@ int main()
     //reset cout to default
     std::cout.copyfmt(init);
 
+    //Table cells
     for(Country country : tours.countries){
         for(size_t i = 0; i < country.cities.size(); i++){
             //Only need country name once. Thus checks if it's the first time running through for loop
