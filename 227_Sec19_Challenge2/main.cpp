@@ -6,6 +6,8 @@
 #define answerKeySize 5
 #define largestNameSize 7
 
+class DivideByZeroException{};
+
 //Compares answer key values to student choice values and returns the amount that are the same
 int checkAnswers(const std::string &answerKey, const std::string &studentChoice){
     int score{0};
@@ -27,6 +29,9 @@ void changeToValidName(std::string &name){
 
 double calculateAvg(const std::vector<int> &scores){
     double avg{0};
+    if(scores.size() == 0){
+        throw DivideByZeroException();
+    }
     for(size_t i = 0; i < scores.size(); i++){
         avg += scores.at(i);
     }
@@ -71,7 +76,6 @@ int main(){
         allStudentScores.push_back(score);
 
         std::cout << currentStudentName << std::setw(11) << std::right << score << std::endl;
-
     }
 
     std::cout << std::setfill('-') << std::setw(20) << "" << std::endl;
@@ -79,7 +83,14 @@ int main(){
     //Reseting cout stream b/c of the setfill
     std::cout.copyfmt(init);
 
-    std::cout << "Average Score:" << std::setw(5) << std::right << std::fixed << std::setprecision(2) << calculateAvg(allStudentScores) << std::endl;
+    try{
+        double avg = calculateAvg(allStudentScores);
+        std::cout << "Average Score:" << std::setw(5) << std::right << std::fixed << std::setprecision(2) << avg << std::endl;
+    }
+
+    catch(const DivideByZeroException &error){
+        std::cerr << "Error: Undefinded Value. Can't Divide by Zero" << std::endl;
+    }
 
     in_file.close();
 
