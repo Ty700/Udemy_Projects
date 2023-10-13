@@ -65,14 +65,14 @@ int main()
                     "Chile", { 
                         { "Valdivia", 260000, 569.12 }, 
                         { "Santiago", 7040000, 520.00 }
+                    },
                 },
-            },
                 { "Argentina", { 
                     { "Buenos Aires", 3010000, 723.77 } 
-                } 
-            },
-        }
-    };
+                    } 
+                },
+            }
+        };
 
     //Saving default state of cout
     std::ios init(NULL);
@@ -100,13 +100,13 @@ int main()
     std::cout.copyfmt(init);
 
     //Table cells
-    for(Country country : tours.countries){
+    for(auto country : tours.countries){
         for(size_t i = 0; i < country.cities.size(); i++){
             //Only need country name once. Thus checks if it's the first time running through for loop
-            std::cout << std::setw(countryWidth) << std::left << ((i == 0) ? country.name : "")
-                      << std::setw(cityWidth) << std::left << country.cities.at(i).name
-                      << std::setw(popWidth) << std::right << country.cities.at(i).population
-                      << std::setw(costWidth) << std::right << country.cities.at(i).cost
+            std::cout << std::setw(countryWidth) << std::left  << ((i == 0) ? country.name : "")
+                      << std::setw(cityWidth)    << std::left  << country.cities.at(i).name
+                      << std::setw(popWidth)     << std::right << country.cities.at(i).population
+                      << std::setw(costWidth)    << std::right << country.cities.at(i).cost
                       << std::endl;
         }
     }
